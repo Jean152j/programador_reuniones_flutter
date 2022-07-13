@@ -55,4 +55,6 @@ class Strings {
   static const String labelMiembros = "Miembros";
   static const String labelBuscarUsuario = "Buscar usuario";
   static const String hintBuscar = "Puede buscar por email o nombre de usuario";
+  static const String msgError = "Algo ha salido mal ";
+  static const String msgHorarioPer = "Aún no ha creado un horario personal";
 }

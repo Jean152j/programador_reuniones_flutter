@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:programador_reuniones_flutter/constants/strings.dart';
 import 'package:programador_reuniones_flutter/controllers/timetable_controller.dart';
 import 'package:programador_reuniones_flutter/models/enums.dart';
 import 'package:programador_reuniones_flutter/models/horario_personal_model.dart';
@@ -37,7 +38,7 @@ class _HorarioPersonalWidgetState extends ConsumerState<HorarioPersonalWidget> {
       stream: ref.read(timetableProvider).getTimetable(),
       builder: (BuildContext context, AsyncSnapshot<DocumentSnapshot<Map<String, dynamic>>> snapshot) {
         if (snapshot.hasError) {
-          return Text('Algo ha salido mal ${snapshot.error}');
+          return Text('${Strings.msgError} ${snapshot.error}');
         }
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Center(child: CircularProgressIndicator());
@@ -47,7 +48,7 @@ class _HorarioPersonalWidgetState extends ConsumerState<HorarioPersonalWidget> {
             children: [
               Center(
                 child: Text(
-                  'Aun no ha creado un horario personal',
+                  Strings.msgHorarioPer,
                   style: Theme.of(context).textTheme.titleLarge,
                 ),
               ),
