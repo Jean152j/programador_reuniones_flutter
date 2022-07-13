@@ -41,17 +41,17 @@ class _DashboardViewState extends State<DashboardView> with SingleTickerProvider
           }
           if (constraints.maxWidth < 1100) {
             return Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding: const EdgeInsets.all(4.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  const Flexible(flex: 6, child: Card(child: HorarioPersonalWidget())),
+                  const Flexible(flex: 5, child: Card(elevation: 5, clipBehavior: Clip.antiAlias, child: HorarioPersonalWidget())),
                   Flexible(
                     flex: 4,
                     child: Column(
                       children: const [
-                        Expanded(child: Card(child: HorasTrabajoWidget())),
-                        Expanded(child: Card(child: GruposPersonal())),
+                        Expanded(child: Card(elevation: 4, child: HorasTrabajoWidget())),
+                        Expanded(child: Card(elevation: 4, child: GruposPersonal())),
                       ],
                     ),
                   )
@@ -60,13 +60,17 @@ class _DashboardViewState extends State<DashboardView> with SingleTickerProvider
             );
           } else {
             return Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(6.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 children: const [
-                  Flexible(flex: 6, fit: FlexFit.tight, child: Card(child: HorarioPersonalWidget())),
-                  Flexible(flex: 4, fit: FlexFit.tight, child: Card(child: HorasTrabajoWidget())),
-                  Flexible(flex: 4, fit: FlexFit.tight, child: Card(child: GruposPersonal()))
+                  Flexible(
+                    flex: 5,
+                    fit: FlexFit.tight,
+                    child: Card(elevation: 5, clipBehavior: Clip.antiAlias, child: HorarioPersonalWidget()),
+                  ),
+                  Flexible(flex: 4, fit: FlexFit.tight, child: Card(elevation: 4, child: HorasTrabajoWidget())),
+                  Flexible(flex: 4, fit: FlexFit.tight, child: Card(elevation: 4, child: GruposPersonal()))
                 ],
               ),
             );
